@@ -1,0 +1,12 @@
+# depslib dependency file v1.0
+1523230997 source:c:\users\hernandez\desktop\ordenararrys\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lib.h"
+
+1523144159 c:\users\hernandez\desktop\ordenararrys\lib.h
+
+1523145101 source:c:\users\hernandez\desktop\ordenararrys\lib.c
+	<stdio.h>
+	<stdlib.h>
+
