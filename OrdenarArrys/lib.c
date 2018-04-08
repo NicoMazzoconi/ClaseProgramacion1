@@ -148,7 +148,10 @@ int ordenarArray(int *arrayRecibida, int cantidad)
         contador--;
     }while (indice<cantidad);
 
-
+    for(int i = 0; i < cantidad; i++)
+    {
+        arrayRecibida[i] = arrayaux[i];
+    }
     return 0;
 }
 
