@@ -9,7 +9,7 @@ int main()
 
     getArray("Ingrese un valor", "fura de rango", 2, 100, 0, &ArrayDesordenada, QTY);
   //  mostrarArray(&ArrayDesordenada, QTY);
-    ordenarArray(&ArrayDesordenada, QTY);
+    ordenarArrayMejorado(&ArrayDesordenada, QTY);
     mostrarArray(&ArrayDesordenada, QTY);
     return 0;
 }

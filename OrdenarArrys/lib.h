@@ -6,4 +6,5 @@ float getFloat(char *mensaje, char *error, int intentos, float maximo, float min
 int getArray(char *mensaje, char *error, int intentos, int maximo, int minimo, int *resultado, int cantidad);
 int mostrarArray(int *arrayRecibida, int cantidad);
 int ordenarArray(int *arrayRecibida, int cantidad);
+int ordenarArrayMejorado(int *arrayRecibida, int cantidad);
 #endif // LIB_H_INCLUDED

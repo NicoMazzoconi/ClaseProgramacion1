@@ -85,7 +85,17 @@ float getFloat(char *mensaje, char *error, int intentos, float maximo, float min
         printf("%s", error);
     }while(intentos >= 0);
 }
-
+/** \brief Pide los valores de un array
+ *
+ * \param char* mensaje mensaje que muestra para pedir
+ * \param char* error mensaje que muestra al no respetar lo pedido
+ * \param int intentos cantidad de veces que puede intentarlo
+ * \param int maximo numero entero maximo a ingresar
+ * \param int minimo numero entero minimo a ingresar
+ * \param int* resultado devuelve el valor ingresado y valido
+ * \return int -1 la cantidad es menor a 0, 0 todo correcto
+ *
+ */
 int getArray(char *mensaje, char *error, int intentos, int maximo, int minimo, int *resultado, int cantidad)
 {
     int retorno = -1;
@@ -105,6 +115,13 @@ int getArray(char *mensaje, char *error, int intentos, int maximo, int minimo, i
     return retorno;
 }
 
+/** \brief  Muestra una array
+ *
+ * \param int *arrayRecibida array a mostrar
+ * \param int cantidad tamaño de la array
+ * \return int -1 la cantidad es menor a 0, 0 todo correcto
+ *
+ */
 int mostrarArray(int *arrayRecibida, int cantidad)
 {
     int retorno = -1;
@@ -118,41 +135,86 @@ int mostrarArray(int *arrayRecibida, int cantidad)
     return retorno;
 }
 
+/** \brief ordena de menor a mayor una array
+ *
+ * \param int *arrayRecibida array a ordenar
+ * \param int cantidad tamaño de la array
+ * \return int -1 cantidad no valida <0; 0 todo correcto
+ *
+ */
 int ordenarArray(int *arrayRecibida, int cantidad)
 {
     int indice=0;
+    int retorno = -1;
     int menor,posmenor;
     int arrayaux[cantidad];
     int contador = cantidad;
-    do
+    if(cantidad > 0)
     {
-        for(int i=0; i<contador;i++)
+        retorno = 0;
+        do
         {
-            if(i==0)
+            for(int i=0; i<contador;i++)
             {
-                menor = arrayRecibida[i];
-                posmenor=i;
+                if(i==0)
+                {
+                    menor = arrayRecibida[i];
+                    posmenor=i;
+                }
+                if(menor>arrayRecibida[i])
+                {
+                    menor= arrayRecibida[i];
+                    posmenor=i;
+                }
             }
-            if(menor>arrayRecibida[i])
+            arrayaux[indice]=menor;
+            indice++;
+            for(int i=posmenor;i<contador;i++)
             {
-                menor= arrayRecibida[i];
-                posmenor=i;
+                arrayRecibida[i]= arrayRecibida[i+1];
             }
-        }
-        arrayaux[indice]=menor;
-        indice++;
-        for(int i=posmenor;i<contador;i++)
-        {
-            arrayRecibida[i]= arrayRecibida[i+1];
-        }
-        contador--;
-    }while (indice<cantidad);
+            contador--;
+        }while (indice<cantidad);
+    }
 
     for(int i = 0; i < cantidad; i++)
     {
         arrayRecibida[i] = arrayaux[i];
     }
-    return 0;
+    return retorno;
 }
 
+int ordenarArrayMejorado(int *arrayRecibida, int cantidad)
+{
+    int retorno = -1;
+    int indice, posmenor, aux, minimo;
+    indice = 0;
+    if(cantidad > 0)
+    {
+        retorno = 0;
+        do
+        {
+            for(int i = indice; i < cantidad; i++)
+            {
+                if(i==indice)
+                {
+                    minimo = arrayRecibida[i];
+                    posmenor = i;
+                }
+                else
+                {
+                    if(minimo > arrayRecibida[i])
+                    {
+                        posmenor = i;
+                        minimo = arrayRecibida[i];
+                    }
+                }
+            }
+            arrayRecibida[posmenor] = arrayRecibida[indice];
+            arrayRecibida[indice] = minimo;
+            indice++;
+        }while(indice < 4);
+    }
 
+    return retorno;
+}
