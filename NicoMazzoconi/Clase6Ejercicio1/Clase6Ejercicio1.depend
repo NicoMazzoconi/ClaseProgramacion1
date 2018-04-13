@@ -1,0 +1,14 @@
+# depslib dependency file v1.0
+1523569058 source:d:\nicomazzoconi\clase6ejercicio1\lib.c
+	<stdio.h>
+	<stdlib.h>
+	"lib.h"
+
+1523407311 source:d:\nicomazzoconi\clase6ejercicio1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"lib.h"
+
+1523569058 d:\nicomazzoconi\clase6ejercicio1\lib.h
+
