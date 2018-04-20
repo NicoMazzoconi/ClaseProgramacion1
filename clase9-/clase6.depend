@@ -1,0 +1,21 @@
+# depslib dependency file v1.0
+1524013654 source:d:\clase6\funcs.c
+	<stdio.h>
+	<stdlib.h>
+	"funcs.h"
+
+1524186346 source:d:\clase6\main.c
+	<stdio.h>
+	<string.h>
+	"funcs.h"
+	"empleado.h"
+
+1523579844 d:\clase6\funcs.h
+
+1524186859 source:d:\clase6\empleado.c
+	<stdio.h>
+	<string.h>
+	"empleado.h"
+
+1524186902 d:\clase6\empleado.h
+
