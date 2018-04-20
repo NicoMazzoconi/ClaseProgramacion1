@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1524184618 source:d:\nicomazzoconi\clase8ejercicio1\empleado.c
+	"empleado.h"
+	"lib.h"
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+
+1524182387 source:d:\nicomazzoconi\clase8ejercicio1\lib.c
+	<stdio.h>
+	<stdlib.h>
+	"empleado.h"
+	"string.h"
+
+1524184181 source:d:\nicomazzoconi\clase8ejercicio1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"lib.h"
+	"empleado.h"
+
+1524183123 d:\nicomazzoconi\clase8ejercicio1\empleado.h
+
+1524179322 d:\nicomazzoconi\clase8ejercicio1\lib.h
+	"empleado.h"
+
