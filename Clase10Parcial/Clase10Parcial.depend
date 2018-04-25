@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1524612719 source:d:\nicomazzoconi\clase10parcial\lib.c
+	<stdio.h>
+	<stdlib.h>
+	"parcial.h"
+	"string.h"
+	"lib.h"
+
+1524617931 d:\nicomazzoconi\clase10parcial\parcial.h
+
+1524618182 source:d:\nicomazzoconi\clase10parcial\main.c
+	<stdio.h>
+	<stdlib.h>
+	"parcial.h"
+	"string.h"
+	"lib.h"
+
+1524614912 d:\nicomazzoconi\clase10parcial\lib.h
+
+1524618132 source:d:\nicomazzoconi\clase10parcial\parcial.c
+	"parcial.h"
+	<stdio.h>
+	<stdlib.h>
+	"string.h"
+	"lib.h"
+

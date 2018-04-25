@@ -1,0 +1,31 @@
+#ifndef PARCIAL_H_INCLUDED
+#define PARCIAL_H_INCLUDED
+typedef struct{
+    char cuanta[25];
+    char password[10];
+    int idUsuario;
+    int isEmpty;
+}usuario;
+typedef struct{
+    char nombre[30];
+    int idProducto;
+    int stock;
+    int idUsuario;
+    float precio;
+    int isEmpty;
+}producto;
+typedef struct{
+    int idUsuario;
+    int idProducto;
+    int isEmpty;
+    int idCompra;
+}compra;
+
+void usr_init(usuario *cuantas,int sizeArray);
+void pro_init(producto *articulos,int sizeArray);
+void com_init(compra *compras,int sizeArray);
+int usr_alta(usuario *cuentas, int sizeArray, int idUsuarios);
+int pro_alta(producto *articulos, int sizeArray, int idProducto);
+int login(char *mandado, char *password, usuario *cuentas, int sizeArray);
+#endif // PARCIAL_H_INCLUDED
+
