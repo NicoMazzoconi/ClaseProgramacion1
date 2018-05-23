@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1526597762 source:d:\tritto\clase_17_5\main.c
+	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+
+1526597714 d:\tritto\clase_17_5\cliente.h
+
+1526597733 source:d:\tritto\clase_17_5\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+	<string.h>
+
+1527025059 source:d:\nicomazzoconi\clase_17_5\cliente.c
+	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+	<string.h>
+
+1527026139 d:\nicomazzoconi\clase_17_5\cliente.h
+
+1527025978 source:d:\nicomazzoconi\clase_17_5\main.c
+	<stdio.h>
+	<stdlib.h>
+	"cliente.h"
+
