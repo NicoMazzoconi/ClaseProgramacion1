@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ArrayList.h"
-#include "Cliente.h"
+#include "cliente.h"
 #include <string.h>
+#include "utn.h"
 
 static int isValidName(char* name);
 static int isValidLastName(char* lastName);
@@ -160,6 +161,8 @@ int cliente_getNacionalidad(Cliente* this, char* nacionalidad)
     }
     return retorno;
 }
+
+
 int cliente_setId(Cliente* this, int id)
 {
     int retorno = -1;
@@ -228,7 +231,7 @@ void cliente_print(Cliente* this)
     }
 }
 
-int cliente_compareNameLastName(Cliente* clienteA, Cliente* clienteB)
+int cliente_compareNameLastName(void* clienteA, void* clienteB)
 {
     char nombreA[64];
     char nombreB[64];
@@ -240,36 +243,13 @@ int cliente_compareNameLastName(Cliente* clienteA, Cliente* clienteB)
     cliente_getApellido(clienteB, apellidoB);
     if(strcmp(nombreA, nombreB) == 0)
     {
-        if(strcmp(apellidoA, apellidoB) == 0)
-        {
-            return 0;
-        }
-        else
-        {
-            if(strcmp(apellidoA, apellidoB) == -1)
-            {
-                return -1;
-            }
-            else
-            {
-                return 1;
-            }
-        }
+        return strcmp(apellidoA, apellidoB);
     }
     else
-    {
-        if(strcmp(nombreA, nombreB) == 1)
-        {
-            return 1;
-        }
-        else
-        {
-            return -1;
-        }
-    }
+        return strcmp(nombreA, nombreB);
 }
 
-int cliente_compareEmail(Cliente* clienteA, Cliente* clienteB)
+int cliente_compareEmail(void* clienteA, void* clienteB)
 {
     char emailA[256];
     char emailB[256];
@@ -278,6 +258,99 @@ int cliente_compareEmail(Cliente* clienteA, Cliente* clienteB)
     return strcmp(emailA, emailB);
 }
 
+int cliente_alta(ArrayList* this)
+{
+    int retorno = -1;
+    if(this != NULL)
+    {
+        retorno = -2;
+        Cliente* auxCliente = cliente_new();
+        char nombre[64];
+        char apellido[64];
+        char email[256];
+        char genero[1];
+        char profesion[256];
+        char nacionalidad[256];
+        char usuario[64];
+        if(!getValidString("Nombre?\n", "nombre invalido\n", "Demasiado largo\n", nombre, 64, 2))
+            if(!getValidString("Apellido?\n", "apellido invalido\n", "Demasiado largo\n", apellido, 64, 2))
+                if(!getValidString("Email??\n", "email invalido\n", "Demasiado largo\n", email, 256, 2))
+                    if(!getValidString("Genero?\n", "genero invalido\n", "Demasiado largo\n", genero, 2, 2))
+                        if(!getValidString("Profesion?\n", "profesion invalido\n", "Demasiado largo\n", profesion, 256, 2))
+                            if(!getValidString("Nacionalidad?\n", "nacionalidad invalido\n", "Demasiado largo\n", nacionalidad, 256, 2))
+                                if(!getValidString("Usuario?\n", "usuario invalido\n", "Demasiado largo\n", usuario, 64, 2))
+                                {
+                                    auxCliente = cliente_newParametros(nombre, apellido, email, genero, profesion, nacionalidad, usuario, -1);
+                                    al_add(this, auxCliente);
+                                    retorno = 0;
+                                }
+    }
+    return retorno;
+}
+
+int cliente_baja(ArrayList* this, int id)
+{
+    int retorno = -1;
+    if(this != NULL && id >= 0)
+    {
+        int i,auxid;
+        Cliente* auxCliente = cliente_new();
+        retorno = -2;
+        for(i = 0; i < al_len(this); i++)
+        {
+            auxCliente = al_get(this, i);
+            cliente_getId(auxCliente, &auxid);
+            if(auxid == id)
+            {
+                retorno = 0;
+                break;
+            }
+        }
+        al_remove(this, i);
+    }
+    return retorno;
+}
+
+int cliente_mod(ArrayList* this, int id)
+{
+    int retorno = -1;
+    int i,auxid;
+    if(this != NULL && id >= 0)
+    {
+        Cliente* auxCliente = cliente_new();
+        retorno = -2;
+        for(i = 0; i < al_len(this); i++)
+        {
+            auxCliente = al_get(this, i);
+            cliente_getId(auxCliente, &auxid);
+            if(auxid == id)
+            {
+                retorno = 0;
+                break;
+            }
+        }
+        char nombre[64];
+        char apellido[64];
+        char email[256];
+        char genero[1];
+        char profesion[256];
+        char nacionalidad[256];
+        char usuario[64];
+        if(!getValidString("Nombre?\n", "nombre invalido\n", "Demasiado largo\n", nombre, 64, 2))
+            if(!getValidString("Apellido?\n", "apellido invalido\n", "Demasiado largo\n", apellido, 64, 2))
+                if(!getValidString("Email??\n", "email invalido\n", "Demasiado largo\n", email, 256, 2))
+                    if(!getValidString("Genero?\n", "genero invalido\n", "Demasiado largo\n", genero, 2, 2))
+                        if(!getValidString("Profesion?\n", "profesion invalido\n", "Demasiado largo\n", profesion, 256, 2))
+                            if(!getValidString("Nacionalidad?\n", "nacionalidad invalido\n", "Demasiado largo\n", nacionalidad, 256, 2))
+                                if(!getValidString("Usuario?\n", "usuario invalido\n", "Demasiado largo\n", usuario, 64, 2))
+                                {
+                                    auxCliente = cliente_newParametros(nombre, apellido, email, genero, profesion, nacionalidad, usuario, id);
+                                    al_set(this, i, auxCliente);
+                                    retorno = 0;
+                                }
+    }
+    return retorno;
+}
 static int isValidName(char* name)
 {
     return 1;

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ArrayList.h"
-#include "Cliente.h"
+#include "cliente.h"
 #include "parser.h"
 #include <string.h>
 #include "controller.h"
@@ -28,9 +28,16 @@ int main()
     int opcion;
 
     do{
-        getValidInt("1. Cargar datos desde data.csv\n2. Listar Clientes\n3. Ordenar por nombre y apellido\n4. Ordenar por mail\n5. Agregar un Cliente\n6. Elimina un Cliente\n7. Modificar Cliente (Nombre, Apellido y Mail)\n8. Guardar datos en data.csv (modo texto)\n9. Guardar datos en data.bin (modo binario)\n10. Salir\n","Opcion invalida",&opcion,1,10,2);
+        getValidInt("0. Cargar datos desde data.bin\n1. Cargar datos desde data.csv\n2. Listar Clientes\n\
+                    3. Ordenar por nombre y apellido\n4. Ordenar por mail\n5. Agregar un Cliente\n\
+                    6. Elimina un Cliente\n7. Modificar Cliente (Nombre, Apellido y Mail)\n\
+                    8. Guardar datos en data.csv (modo texto)\n9. Guardar datos en data.bin (modo binario)\n\
+                    10. Salir\n","Opcion invalida",&opcion,0,10,2);
         switch(opcion)
         {
+        case 0  :
+            parserEmployeeBinario("data3.bin", pArrayEmpleados);
+            break;
         case 1  :
             controller_leerArchivoCliente("data.csv", pArrayEmpleados);
             break;
@@ -44,10 +51,13 @@ int main()
             controller_ordenarEmail(pArrayEmpleados);
             break;
         case 5  :
+            controller_alta(pArrayEmpleados);
             break;
         case 6  :
+            controller_baja(pArrayEmpleados);
             break;
         case 7  :
+            controller_mod(pArrayEmpleados);
             break;
         case 8  :
             parser_guardarTexto(pArrayEmpleados, "data2.csv");

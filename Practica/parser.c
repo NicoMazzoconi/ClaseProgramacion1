@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ArrayList.h"
-#include "Cliente.h"
+#include "cliente.h"
 
 
 int parserEmployee(char* path , ArrayList* pArrayListEmployee)
@@ -80,33 +80,17 @@ int parser_guardarBinario(ArrayList* array, char* path)
 {
     int retorno = -1;
     FILE* pFile;
-    char nombre[64];
-    char apellido[64];
-    char email[256];
-    char genero[1];
-    char profesion[256];
-    char nacionalidad[256];
-    char usuario[64];
-    int id;
     if(array != NULL && path != NULL)
     {
         pFile = fopen(path, "wb");
         if(pFile != NULL)
         {
             int i;
-            Cliente* auxCliente;
+            Cliente* auxCliente = cliente_new();
             for(i = 0; i < al_len(array);i++)
             {
                 auxCliente = al_get(array, i);
-                cliente_getNombre(auxCliente, nombre);
-                cliente_getApellido(auxCliente, apellido);
-                cliente_getEmail(auxCliente, email);
-                cliente_getGenero(auxCliente, genero);
-                cliente_getNacionalidad(auxCliente, nacionalidad);
-                cliente_getProfesion(auxCliente, profesion);
-                cliente_getUsuario(auxCliente, usuario);
-                cliente_getId(auxCliente, &id);
-                fprintf(pFile, "%d,%s,%s,%s,%s,%s,%s,%s\n", id, nombre, apellido, email, genero, profesion, usuario, nacionalidad);
+                fwrite(auxCliente, sizeof(Cliente), 1, pFile);
             }
         }
     }
@@ -114,3 +98,26 @@ int parser_guardarBinario(ArrayList* array, char* path)
     return retorno;
 }
 
+int parserEmployeeBinario(char* path , ArrayList* pArrayListEmployee)
+{
+
+    int retorno = -1;
+    FILE* pFile;
+    if(path != NULL)
+    {
+        pFile= fopen(path, "rb");
+        if(pFile != NULL && pArrayListEmployee != NULL)
+        {
+            retorno = 0;
+            while(!feof(pFile))
+            {
+                Cliente* auxCliente = cliente_new();
+                cliente_setId(auxCliente, -1);
+                if(fread(auxCliente, sizeof(Cliente), 1, pFile) == 1)
+                    al_add(pArrayListEmployee, auxCliente);
+            }
+        }
+        fclose(pFile);
+    }
+    return retorno;
+}

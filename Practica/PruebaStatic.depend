@@ -14,6 +14,8 @@
 	"ArrayList.h"
 	"Employee.h"
 
+1527642210 h"
+
 1463505431 /home/mauro/Descargas/ARRAY_LIB/LINUX_64/ArrayList.h
 
 1463505760 source:/home/mauro/Descargas/ARRAY_LIB/LINUX_64/Employee.c
@@ -79,6 +81,8 @@
 	"controller.h"
 	"utn.h"
 
+1527815015 r.h"
+
 1527802572 c:\users\alumno\desktop\practica\arraylist.h
 
 1527813566 c:\users\alumno\desktop\practica\cliente.h
@@ -89,12 +93,16 @@
 	"ArrayList.h"
 	"Cliente.h"
 
+1527815311 "
+
 1527814404 source:c:\users\alumno\desktop\practica\cliente.c
 	<stdio.h>
 	<stdlib.h>
 	"ArrayList.h"
 	"Cliente.h"
 	<string.h>
+
+1524691840 
 
 1527814556 c:\users\alumno\desktop\practica\parser.h
 
@@ -116,4 +124,60 @@
 1524691840 c:\users\alumno\desktop\practica\utn.h
 
 1527813591 c:\users\alumno\desktop\practica\controller.h
+
+1528849665 source:/home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/cliente.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"cliente.h"
+	<string.h>
+	"utn.h"
+
+1528841641 /home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/ArrayList.h
+
+1528849956 /home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/cliente.h
+
+1528849852 source:/home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/controller.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"cliente.h"
+	"parser.h"
+	<string.h>
+	"utn.h"
+
+1528842594 /home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/parser.h
+
+1528849114 source:/home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/main.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"cliente.h"
+	"parser.h"
+	<string.h>
+	"controller.h"
+	"utn.h"
+
+1528848982 /home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/controller.h
+
+1528841641 /home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/utn.h
+
+1528845661 source:/home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/parser.c
+	<stdio.h>
+	<stdlib.h>
+	"ArrayList.h"
+	"cliente.h"
+
+1528841641 source:/home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/utn.c
+	<stdio.h>
+	<stdlib.h>
+	<time.h>
+	<string.h>
+	"utn.h"
+
+1528841917 source:/home/alumno/Nicolas Mazzoconi/ClaseProgramacion1/Practica/ArrayList.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"ArrayList.h"
 

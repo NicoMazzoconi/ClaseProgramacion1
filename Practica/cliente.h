@@ -33,7 +33,11 @@ int cliente_getId(Cliente* this, int* id);
 int cliente_setUsuario(Cliente* this, char* usuario);
 int cliente_getUsuario(Cliente* this, char* usuario);
 void cliente_print(Cliente* this);
-int cliente_compareNameLastName(Cliente* clienteA, Cliente* clienteB);
-int cliente_compareEmail(Cliente* clienteA, Cliente* clienteB);
+int cliente_compareNameLastName(void* clienteA, void* clienteB);
+int cliente_compareEmail(void* clienteA, void* clienteB);
+
+int cliente_alta(ArrayList* this);
+int cliente_baja(ArrayList* this, int id);
+int cliente_mod(ArrayList* this, int id);
 #endif // _CLIENTE_H
 
